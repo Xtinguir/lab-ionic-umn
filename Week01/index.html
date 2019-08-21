@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="./app.js"></script> 
+        <script src="https://unpkg.com/@ionic/core@latest/dist/ionic.js"></script>
+        <link href="https://unpkg.com/@ionic/core@latest/css/ionic.bundle.css" rel="stylesheet">           
+    </head>
+    <body>
+        <ion-header>
+            <ion-toolbar color="primary">
+                <ion-title style="text-align: left">Budget Planner</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title style="font-weight: bolder">Input Pengeluaran</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    <ion-item style="margin-top: 30;">
+                        <ion-input id="inputName" placeholder="Nama Pengeluaran" clearInput></ion-input>
+                    </ion-item>
+                    <ion-item style="margin-top: 15;">
+                        <ion-input type="number" id="inputPrice" placeholder="Jumlah Pengeluaran" clearInput></ion-input>
+                    </ion-item>
+                    <div style="margin: 10px; float: right;">
+                        <ion-button id="btnDelete" color ="danger" fill="outline">
+                            <ion-icon name="close"></ion-icon>
+                            Hapus
+                        </ion-button>
+                        <ion-button id="btnAdd">
+                            <ion-icon name="add"></ion-icon> 
+                            <ion-alert-controller></ion-alert-controller>
+                            Tambah
+                        </ion-button>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+            <div id="budgetContent" style="margin: 10px; margin-top: 25px;"></div>
+            <div id="totalPriceContent" style="margin: 25px; margin-top: 45px;">
+                Total Pengeluaran : Rp. 
+            </div>
+        </ion-content>        
+    </body>
+</html>
