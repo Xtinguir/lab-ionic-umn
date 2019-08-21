@@ -16,4 +16,12 @@ export class RecipesPage implements OnInit {
     this.recipes = this.recipesService.getAllRecipes();
   }
 
+  getRecipe(recipeId: string){
+    let recipe = this.recipesService.getRecipe(recipeId);
+    console.log(recipe);
+  }
+
+  deleteRecipe(recipeId: string){
+    this.recipesService.deleteRecipe(recipeId);
+  }
 }
