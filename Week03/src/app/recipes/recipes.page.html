@@ -6,16 +6,11 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let recipe of recipes" (click)="getRecipe(recipe.id)">
+    <ion-item *ngFor="let recipe of recipes" [routerLink]="['./', recipe.id]" >
       <ion-avatar slot="start">
         <ion-img [src]="recipe.imageUrl"></ion-img>
       </ion-avatar>
-      <ion-label>
-        {{ recipe.title }}
-      </ion-label>
-      <ion-button color="danger" (click)="deleteRecipe(recipe.id)">
-        <ion-icon name="close"></ion-icon>
-      </ion-button>
+      <ion-label>{{ recipe.title }}</ion-label>
     </ion-item>
   </ion-list>
 </ion-content>
