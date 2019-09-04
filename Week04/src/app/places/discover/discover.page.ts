@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Place } from '../place.model';
+import { PlacesService } from '../places.service';
 import { MenuController } from '@ionic/angular';
 
 @Component({
@@ -8,9 +10,15 @@ import { MenuController } from '@ionic/angular';
 })
 export class DiscoverPage implements OnInit {
 
-  constructor(private menuCtrl: MenuController) { }
+  places: Place[];
+  constructor(private placesService: PlacesService, private menuCtrl: MenuController) { }
 
   ngOnInit() {
+    this.places = this.placesService.getAllPlaces();
+  }
+
+  ionViewWillEnter(){
+    this.ngOnInit();
   }
 
   onOpenMenu(){

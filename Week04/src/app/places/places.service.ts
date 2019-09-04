@@ -22,4 +22,8 @@ export class PlacesService {
     )
   ]
   constructor() { }
+
+  getAllPlaces(){
+    return [...this.places];
+  }
 }

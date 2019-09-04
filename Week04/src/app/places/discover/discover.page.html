@@ -12,12 +12,12 @@
       <ion-col size="12" size-sm="8" offset-sm="2" text-center>
         <ion-card>
           <ion-card-header>
-            <ion-card-title>{{ loadedPlaces[0].title }}</ion-card-title>
-            <ion-card-subtitle>{{ loadedPlaces[0].price | currency }}</ion-card-subtitle>
+            <ion-card-title>{{ places[0].title }}</ion-card-title>
+            <ion-card-subtitle>{{ places[0].price }}</ion-card-subtitle>
           </ion-card-header>
-          <ion-img [src]="loadedPlaces[0].imgUrl"></ion-img>
+          <ion-img [src]="places[0].imgUrl"></ion-img>
           <ion-card-content>
-            <p>{{ loadedPlaces[0].description }}</p>
+            <p>{{ places[0].description }}</p>
           </ion-card-content>
           <div text-right>
             <ion-button
@@ -29,7 +29,7 @@
                 'places',
                 'tabs',
                 'discover',
-                loadedPlaces[0].id
+                places[0].id
               ]"
             >More</ion-button>
           </div>
@@ -39,13 +39,13 @@
     <ion-row>
       <ion-col size="12" size-sm="8" offset-sm="2" text-center>
         <ion-list>
-          <ion-item *ngFor="let p of loadedPlace.slice(1)" [routerLink]="['/', 'places', 'tabs', 'discover', p.id]" >
+          <ion-item *ngFor="let place of places.slice(1)" [routerLink]="['/', 'places', 'tabs', 'discover', place.id]" >
             <ion-thumbnail slot="start">
-              <ion-img [src]="p.imgUrl"></ion-img>
+              <ion-img [src]="place.imgUrl"></ion-img>
             </ion-thumbnail>
             <ion-label>
-              <h2> {{ p.title }}</h2>
-              <p> {{ p.description }}</p>
+              <h2> {{ place.title }}</h2>
+              <p> {{ place.description }}</p>
             </ion-label>
           </ion-item>
         </ion-list>
