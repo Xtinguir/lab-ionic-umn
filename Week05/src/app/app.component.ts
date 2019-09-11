@@ -34,6 +34,10 @@ export class AppComponent {
     this.router.navigateByUrl('/auth');
   }
 
+  onOpenMyBookings(){
+    this.router.navigateByUrl('bookings');
+  }
+
   onCloseMenu() {
     this.menuCtrl.toggle('m1');
   }
