@@ -14,7 +14,7 @@
         <ion-list>
           <ion-item-sliding *ngFor="let booking of bookings" #slidingItem>
             <ion-item-options side="end">
-                <ion-item-option color="danger" (click)="deleteBooking(booking.id, slidingItem)">
+                <ion-item-option color="danger" (click)="deleteBooking(booking.id)">
                   <ion-icon name="trash" slot="icon-only"></ion-icon>
                 </ion-item-option>
             </ion-item-options>
