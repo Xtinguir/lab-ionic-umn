@@ -22,6 +22,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [PlaceDetailPage]
+  declarations: [PlaceDetailPage, CreateBookingComponent],
+  entryComponents: [CreateBookingComponent]
 })
 export class PlaceDetailPageModule {}
