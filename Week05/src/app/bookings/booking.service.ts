@@ -24,10 +24,16 @@ export class BookingService {
   ]
 
   constructor() { }
-  
+
   getAllBookings(){
     return [...this.bookings];
   };
 
-  
+  deleteBooking(id: string){
+    this.bookings = this.bookings.filter( booking => {
+      console.log("id: ", id);
+      console.log("booking.id: ", booking.id);
+      return booking.id !== id;
+    });
+  }
 }

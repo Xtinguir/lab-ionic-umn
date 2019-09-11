@@ -16,4 +16,12 @@ export class BookingsPage implements OnInit {
     this.bookings = this.bookingService.getAllBookings();
   }
 
+  ionViewWillEnter(){
+    this.ngOnInit();
+  }
+
+  deleteBooking(id: string){
+    this.bookingService.deleteBooking(id);
+  }
+
 }
