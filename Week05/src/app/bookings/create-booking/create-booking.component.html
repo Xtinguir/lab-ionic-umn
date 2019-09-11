@@ -11,5 +11,9 @@
 
 <ion-content text-center padding>
   <p>{{ selectedPlace.description }}</p>
-  <ion-button color="primary" (click)="onBookPlace()">Book!</ion-button>
+  <ion-img [src]="selectedPlace.imgUrl"></ion-img>
+  <p>{{ selectedPlace.price }}</p>
+  <h1>Are you sure want to book the place ?</h1>
+  <ion-button color="primary" (click)="bookPlace()">Book Now</ion-button>
+  <ion-button color="danger" (click)="onCancel()">Cancel</ion-button>
 </ion-content>

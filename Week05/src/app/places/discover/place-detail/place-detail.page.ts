@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Place } from '../../place.model';
-import { NavController, ModalController } from '@ionic/angular';
+import { NavController, ModalController, LoadingController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { PlacesService } from '../../places.service';
 import { CreateBookingComponent } from '../../../bookings/create-booking/create-booking.component';
@@ -17,7 +17,8 @@ export class PlaceDetailPage implements OnInit {
     private navCtrl: NavController,
     private route: ActivatedRoute,
     private placesService: PlacesService,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private loadingCtrl: LoadingController,
   ) { }
 
   ngOnInit() {
@@ -39,12 +40,34 @@ export class PlaceDetailPage implements OnInit {
       .then(modalEl => {
         modalEl.present();
         return modalEl.onDidDismiss();
-      })
-      .then(resultData => {
-        console.log(resultData.data, resultData.role);
-        if(resultData.role === 'confirm') {
-          console.log('BOOKED');
-        }
       });
+      // .then(resultData => {
+      //   console.log(resultData.data, resultData.role);
+      //   if(resultData.role === 'confirm') {
+      //     console.log('BOOKED');
+      //   }
+      // });
   }
+
+  bookThisPlace() {
+    this.loadingCtrl.create({
+      keyboardClose: true,
+      message: 'Booking the place ...'
+    })
+    .then(loadingEl => {
+      loadingEl.present();
+      setTimeout(() => {
+        this.modalCtrl.dismiss({message: 'booked!'}, 
+        'confirm');
+      }, 2000);
+    });
+  }
+
+  bookPlace() {
+    this.modalCtrl.create({ component: CreateBookingComponent })
+      .then(modalElement => {
+        modalElement.present();
+      })
+  }
+
 }

@@ -8,5 +8,10 @@
 </ion-header>
 
 <ion-content>
+    <ion-card-content>
+      <ion-img [src]="place.imgUrl"></ion-img>
+      <p>{{ place.description }}</p>
+      <p>{{ place.price }}</p>
+    </ion-card-content>
   <ion-button color="primary" margin (click)="onBookPlace()">Book</ion-button>
 </ion-content>
