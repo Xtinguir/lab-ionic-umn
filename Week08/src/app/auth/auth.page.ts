@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
 import { LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-auth',
@@ -9,12 +10,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./auth.page.scss'],
 })
 export class AuthPage implements OnInit {
-
   isLoading: boolean;
+  isLogin = true;
+
   constructor(
     private authService: AuthService,
     private router: Router, 
-    private loadingCtrl: LoadingController) { }
+    private loadingCtrl: LoadingController ) { }
   
   ngOnInit() {
     this.authService.login();
@@ -32,5 +34,24 @@ export class AuthPage implements OnInit {
       }, 1500);
     });
     this.authService.login();
+  }
+
+  onSwitchAuthMode() {
+    this.isLogin = !this.isLogin;
+  }
+
+  onSubmit(form: NgForm) {
+    if(!form.valid) {
+      return;
+    }
+    const email = form.value.email;
+    const password = form.value.password;
+
+    if(this.isLogin){
+
+    } else {
+
+    }
+
   }
 }
